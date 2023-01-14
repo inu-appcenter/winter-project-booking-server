@@ -11,5 +11,5 @@ Language : Spring boot + MYSQL
 
 |이주원|정동현|
 |:-:|:-:|
-|<img src="https://avatars.githubusercontent.com/u/108407945?v=4" width=200>|<img src="https://avatars.githubusercontent.com/u/98350310?v=4" width=200>|
+|<a href="https://github.com/Juser0"><img src="https://avatars.githubusercontent.com/u/108407945?v=4" width=200></a>|<a href="https://github.com/jd-hyun"><img src="https://avatars.githubusercontent.com/u/98350310?v=4" width=200></a>|
 |[@Juser0](https://github.com/Juser0)|[@jd-hyun](https://github.com/jd-hyun)|
