@@ -13,6 +13,5 @@ public enum Category {
     MAJOR_ESSENTIAL("전공핵심"),
     MAJOR_INTENSIFICATION("전공심화");
 
-
     private final String name;
 }
