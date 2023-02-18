@@ -3,6 +3,7 @@ package com.example.bookservice.controller;
 import com.example.bookservice.domain.Subject;
 import com.example.bookservice.domain.SubjectCondition;
 import com.example.bookservice.service.SubjectService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Api(tags = "과목 조회")
 @RestController
 @RequestMapping("/subjects")
 @RequiredArgsConstructor

@@ -3,7 +3,6 @@ package com.example.bookservice.service;
 import com.example.bookservice.domain.Subject;
 import com.example.bookservice.domain.SubjectCondition;
 import com.example.bookservice.exception.CustomException;
-import com.example.bookservice.exception.ErrorCode;
 import com.example.bookservice.repository.SubjectRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -56,7 +55,7 @@ public class SubjectService {
     // 과목 조회
     public Subject findById(Long subjectId) {
         Subject foundSubject = subjectRepository.findById(subjectId)
-                .orElseThrow(() -> new CustomException(ErrorCode.SUBJECT_NOT_FOUND));
+                .orElseThrow(() -> new CustomException(SUBJECT_NOT_FOUND));
 
         return foundSubject;
     }

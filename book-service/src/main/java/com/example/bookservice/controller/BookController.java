@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Api(tags = "책")
+@Api(tags = "책 조회")
 @RestController
 @RequestMapping("/books")
 @RequiredArgsConstructor
