@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Api(tags = "과목 조회")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/subjects")
 @RequiredArgsConstructor
