@@ -5,15 +5,13 @@ import com.example.bookservice.service.BookService;
 import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Api(tags = "책 조회")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/books")
 @RequiredArgsConstructor
