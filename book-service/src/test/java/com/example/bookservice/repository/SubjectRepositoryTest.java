@@ -29,9 +29,9 @@ class SubjectRepositoryTest {
         subjectRepository.save(subject2);
         //when
         List<Subject> subjects1 = subjectRepository.findAll();
-        List<Subject> subjects2 = subjectRepository.findByNameContaining("c");
-        List<Subject> subjects3 = subjectRepository.findByProfessorContaining("이선");
-        List<Subject> subjects4 = subjectRepository.findByDepartmentContaining("컴퓨터");
+        List<Subject> subjects2 = subjectRepository.findBySubjectNameContaining("c");
+        List<Subject> subjects3 = subjectRepository.findByProfessorNameContaining("이선");
+        List<Subject> subjects4 = subjectRepository.findByDepartmentNameContaining("컴퓨터");
 
         //then
         Assertions.assertThat(subjects1.size()).isEqualTo(2);

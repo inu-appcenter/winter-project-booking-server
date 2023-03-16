@@ -7,10 +7,10 @@ import lombok.Getter;
 @AllArgsConstructor
 public class SubjectCondition {
 
-    private String name;
+    private String subjectName;
 
-    private String professor;
+    private String professorName;
 
-    private String department;
+    private String departmentName;
 
 }

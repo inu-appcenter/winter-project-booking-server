@@ -1,5 +1,6 @@
 package com.example.bookservice.domain;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,12 +11,13 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Book {
+public class SaveBook {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "book_id")
+    @Column(name = "save_book_id")
     private Long id;
+
     private String title;
 
     private String author;
@@ -27,9 +29,12 @@ public class Book {
     private String type;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "subject_id")
-    private Subject subject;
+    @JoinColumn(name = "book_id")
+    private Book book;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id")
+    private Member member;
 
     public void setTitle(String title) {
         this.title = title;
@@ -51,20 +56,15 @@ public class Book {
         this.type = type;
     }
 
-
-    public void setSubject(Subject subject) {
-        this.subject = subject;
-        subject.getBooks().add(this);
-    }
-
-    public static Book createBook(Subject subject, String title, String author, String publisher, int year, String type) {
-        Book book = new Book();
-        book.setSubject(subject);
-        book.setTitle(title);
-        book.setAuthor(author);
-        book.setPublisher(publisher);
-        book.setYear(year);
-        book.setType(type);
-        return book;
+    public static SaveBook createSaveBook(Book book, Member member) {
+        SaveBook saveBook = new SaveBook();
+        saveBook.title = book.getTitle();
+        saveBook.author = book.getAuthor();
+        saveBook.publisher = book.getPublisher();
+        saveBook.year = book.getYear();
+        saveBook.type = book.getType();
+        saveBook.book = book;
+        saveBook.member = member;
+        return saveBook;
     }
 }

@@ -12,6 +12,7 @@ public enum ErrorCode {
     SUCCESS(HttpStatus.OK, "OK"),
 
     // == 4xx == //
+    MEMBER_NOT_FOUND(HttpStatus.NOT_FOUND, "해당 회원이 존재하지 않습니다."),
     SUBJECT_NOT_FOUND(HttpStatus.NOT_FOUND, "해당 과목이 존재하지 않습니다"),
     BOOK_NOT_FOUND(HttpStatus.NOT_FOUND, "해당하는 책이 존재하지 않습니다"),
 

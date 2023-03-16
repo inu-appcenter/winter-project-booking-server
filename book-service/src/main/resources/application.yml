@@ -16,3 +16,7 @@ spring:
         format_sql: true
   profiles:
     active: local
+
+springboot:
+  jwt:
+    secret: flature!@#

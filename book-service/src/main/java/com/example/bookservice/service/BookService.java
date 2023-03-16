@@ -1,8 +1,10 @@
 package com.example.bookservice.service;
 
 import com.example.bookservice.domain.Book;
+import com.example.bookservice.domain.Member;
 import com.example.bookservice.exception.CustomException;
 import com.example.bookservice.repository.BookRepository;
+import com.example.bookservice.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,8 @@ import static com.example.bookservice.exception.ErrorCode.*;
 public class BookService {
 
     private final BookRepository bookRepository;
+
+    private final MemberRepository memberRepository;
 
     // 책 전체 조회
     public List<Book> findAll() {

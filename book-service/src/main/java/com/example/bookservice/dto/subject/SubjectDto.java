@@ -1,4 +1,4 @@
-package com.example.bookservice.controller;
+package com.example.bookservice.dto.subject;
 
 
 import com.example.bookservice.domain.Subject;
@@ -19,15 +19,15 @@ public class SubjectDto {
 
     @ApiModelProperty(example = "융합디자인론")
     @ApiParam(value = "과목명")
-    private String name;
+    private String subjectName;
 
     @ApiModelProperty(example = "한혜진")
     @ApiParam(value = "교수명")
-    private String professor;
+    private String professorName;
 
     @ApiModelProperty(example = "디자인학부")
     @ApiParam(value = "전공 (교양수업인 경우 교양)")
-    private String department;
+    private String departmentName;
 
     @ApiModelProperty(example = "전공심화")
     @ApiParam(value = "과목분류 (전공핵심, 교양심화 등)")
@@ -35,9 +35,9 @@ public class SubjectDto {
 
     public SubjectDto(Subject subject) {
         this.id = subject.getId();
-        this.name = subject.getName();
-        this.professor = subject.getProfessor();
-        this.department = subject.getDepartment();
+        this.subjectName = subject.getSubjectName();
+        this.professorName = subject.getProfessorName();
+        this.departmentName = subject.getDepartmentName();
         this.subjectType = subject.getSubjectType();
     }
 }

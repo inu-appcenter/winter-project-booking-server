@@ -1,4 +1,4 @@
-package com.example.bookservice.controller;
+package com.example.bookservice.dto.book;
 
 import com.example.bookservice.domain.Book;
 import com.example.bookservice.domain.Subject;
@@ -36,10 +36,6 @@ public class BookDto {
     @ApiParam(value = "자료유형")
     private String type;
 
-    @ApiModelProperty(example = "false")
-    @ApiParam(value = "책 저장 여부")
-    private Boolean isSaved;
-
     public BookDto(Book book) {
         this.id = book.getId();
         this.title = book.getTitle();
@@ -47,6 +43,5 @@ public class BookDto {
         this.publisher = book.getPublisher();
         this.year = book.getYear();
         this.type = book.getType();
-        this.isSaved = book.getIsSaved();
     }
 }
