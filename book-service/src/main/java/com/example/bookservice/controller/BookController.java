@@ -1,10 +1,14 @@
 package com.example.bookservice.controller;
 
 import com.example.bookservice.domain.Book;
+import com.example.bookservice.domain.Member;
+import com.example.bookservice.dto.book.BookDto;
 import com.example.bookservice.service.BookService;
 import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

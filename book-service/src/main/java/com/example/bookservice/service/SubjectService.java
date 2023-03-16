@@ -24,18 +24,18 @@ public class SubjectService {
     public List<Subject> findSubjects(SubjectCondition subjectCondition) {
         List<Subject> foundSubjects = null;
 
-        String name = subjectCondition.getName();
-        String professor = subjectCondition.getProfessor();
-        String department = subjectCondition.getDepartment();
+        String subjectName = subjectCondition.getSubjectName();
+        String professorName = subjectCondition.getProfessorName();
+        String departmentName = subjectCondition.getDepartmentName();
 
         try
         {
-            if (StringUtils.hasText(name)) {
-                return subjectRepository.findByNameContaining(name);
-            } else if (StringUtils.hasText(professor)) {
-                return subjectRepository.findByProfessorContaining(professor);
-            } else if (StringUtils.hasText(department)) {
-                return subjectRepository.findByDepartmentContaining(department);
+            if (StringUtils.hasText(subjectName)) {
+                return subjectRepository.findBySubjectNameContaining(subjectName);
+            } else if (StringUtils.hasText(professorName)) {
+                return subjectRepository.findByProfessorNameContaining(professorName);
+            } else if (StringUtils.hasText(departmentName)) {
+                return subjectRepository.findByDepartmentNameContaining(departmentName);
             }
             foundSubjects = subjectRepository.findAll();
         }

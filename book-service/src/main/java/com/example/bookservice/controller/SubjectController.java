@@ -2,6 +2,8 @@ package com.example.bookservice.controller;
 
 import com.example.bookservice.domain.Subject;
 import com.example.bookservice.domain.SubjectCondition;
+import com.example.bookservice.dto.subject.SubjectDto;
+import com.example.bookservice.dto.subject.SubjectResponse;
 import com.example.bookservice.service.SubjectService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -33,7 +35,7 @@ public class SubjectController {
             @ApiResponse(code = 500, message = "서버에서 에러가 발생하였습니다")
     })
     public List<SubjectDto> findSubjects(SubjectCondition subjectCondition) {
-        log.info("[findSubjects] 과목명으로 검색을 수행합니다. name : {}, professor : {}, department : {}", subjectCondition.getName(), subjectCondition.getProfessor(), subjectCondition.getDepartment());
+        log.info("[findSubjects] 과목명으로 검색을 수행합니다. subjectName : {}, professorName : {}, departmentName : {}", subjectCondition.getSubjectName(), subjectCondition.getProfessorName(), subjectCondition.getDepartmentName());
         List<Subject> subjects = subjectService.findSubjects(subjectCondition);
         return subjects.stream()
                 .map(subject -> new SubjectDto(subject))

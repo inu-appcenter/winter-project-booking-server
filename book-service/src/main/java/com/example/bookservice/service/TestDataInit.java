@@ -36,15 +36,15 @@ public class TestDataInit {
         Subject subject8 = new Subject("C언어프로그래밍(1)", "전경구", "임베디드시스템공학과", SubjectType.전공기초);
         Subject subject9 = new Subject("이산수학", "황광일", "임베디드시스템공학과", SubjectType.전공기초);
 
-        Book book1 = Book.createBook(subject1, "핵심 미분적분학(9판)", null, "경문사", 2021, null, false);
-        Book book2 = Book.createBook(subject2, "4차 산업혁명 시대의 이산수학 (개정판)", null, "생능출판사", 2022, null, false);
-        Book book3 = Book.createBook(subject3, "소프트웨어 중심사회의 컴퓨터 개론", null, "인피니티", 2019, null, false);
-        Book book4 = Book.createBook(subject4, "미적분학", null, "한빛미디어", 2015, null, false);
-        Book book5 = Book.createBook(subject5, "STEM CookBook, 컴퓨팅 사고력을 키우는 이산수학 (3판)", null, "한빛아카데미", 2021, null, false);
-        Book book6 = Book.createBook(subject6, "Advanced Calculus for Applications", null, "Prentice-Hall", 1976, null, false);
-        Book book7 = Book.createBook(subject7, "공업수학 Express", null, "생능출판사", 2020, null, false);
-        Book book8 = Book.createBook(subject8, "쉽게 풀어쓴 C언어 익스프레스", null, "생능출판사", 2021, null, false);
-        Book book9 = Book.createBook(subject9, "Mathematics for Electrical Engineering and Computing", null, "Newnes", 2004, null, false);
+        Book book1 = Book.createBook(subject1, "핵심 미분적분학(9판)", null, "경문사", 2021, null);
+        Book book2 = Book.createBook(subject2, "4차 산업혁명 시대의 이산수학 (개정판)", null, "생능출판사", 2022, null);
+        Book book3 = Book.createBook(subject3, "소프트웨어 중심사회의 컴퓨터 개론", null, "인피니티", 2019, null);
+        Book book4 = Book.createBook(subject4, "미적분학", null, "한빛미디어", 2015, null);
+        Book book5 = Book.createBook(subject5, "STEM CookBook, 컴퓨팅 사고력을 키우는 이산수학 (3판)", null, "한빛아카데미", 2021, null);
+        Book book6 = Book.createBook(subject6, "Advanced Calculus for Applications", null, "Prentice-Hall", 1976, null);
+        Book book7 = Book.createBook(subject7, "공업수학 Express", null, "생능출판사", 2020, null);
+        Book book8 = Book.createBook(subject8, "쉽게 풀어쓴 C언어 익스프레스", null, "생능출판사", 2021, null);
+        Book book9 = Book.createBook(subject9, "Mathematics for Electrical Engineering and Computing", null, "Newnes", 2004, null);
 
         for (Subject subject : Arrays.asList(subject1, subject2, subject3, subject4, subject5, subject6, subject7, subject8, subject9)) {
             subjectRepository.save(subject);
