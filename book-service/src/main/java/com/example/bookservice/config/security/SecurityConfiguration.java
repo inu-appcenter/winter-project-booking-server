@@ -31,7 +31,7 @@ public class SecurityConfiguration {
                 )
                 .and()
                 .authorizeRequests()
-                .antMatchers("/members/sign-in", "/members/sign-up", "/members/exception", "/books", "books/{bookId}", "/subjects", "/subjects/{subjectId}").permitAll()
+                .antMatchers("/members/sign-in", "/members/sign-up", "/members/exception", "/books", "/books/{bookId}", "/subjects", "/subjects/{subjectId}").permitAll()
 
                 .antMatchers("**exception**").permitAll()
 

@@ -19,4 +19,4 @@ spring:
 
 springboot:
   jwt:
-    secret: flature!@#
+    secret: SecretKeyValue!
