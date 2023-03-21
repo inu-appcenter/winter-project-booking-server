@@ -9,14 +9,16 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collections;
 
 import static com.example.bookservice.exception.ErrorCode.*;
 
 @Service
-@Slf4j
 @RequiredArgsConstructor
+@Transactional(readOnly = true)
+@Slf4j
 public class MemberService {
 
     private final MemberRepository memberRepository;
@@ -26,6 +28,7 @@ public class MemberService {
     private final PasswordEncoder passwordEncoder;
 
     // 회원가입
+    @Transactional
     public SignUpResponseDto signUp(SignUpRequestDto signUpRequestDto) {
 
         Member member = Member.builder()
@@ -46,6 +49,7 @@ public class MemberService {
     }
 
     // 로그인
+    @Transactional
     public SignInResponseDto signIn(SignInRequestDto signInRequestDto) {
         log.info("[signInRequestDto] 아이디 비교 수행");
         Member member = memberRepository.getByEmail(signInRequestDto.getEmail())
@@ -70,12 +74,14 @@ public class MemberService {
     }
 
     // 회원 조회
+    @Transactional
     public Member findById(Long memberId) {
         return memberRepository.findById(memberId)
                 .orElseThrow(() -> new CustomException(MEMBER_NOT_FOUND));
     }
 
     // 회원 탈퇴
+    @Transactional
     public void delete(Long memberId) {
         memberRepository.findById(memberId)
                 .orElseThrow(() -> new CustomException(MEMBER_NOT_FOUND));

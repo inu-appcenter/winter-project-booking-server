@@ -8,6 +8,7 @@ import com.example.bookservice.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -15,6 +16,7 @@ import static com.example.bookservice.exception.ErrorCode.*;
 
 @Service
 @RequiredArgsConstructor
+@Transactional(readOnly = true)
 @Slf4j
 public class BookService {
 
@@ -23,6 +25,7 @@ public class BookService {
     private final MemberRepository memberRepository;
 
     // 책 전체 조회
+    @Transactional
     public List<Book> findAll() {
         List<Book> foundBooks = null;
 
@@ -44,6 +47,7 @@ public class BookService {
     }
 
     // 책 조회
+    @Transactional
     public Book findById(Long bookId) {
         Book foundBook = bookRepository.findById(bookId)
                 .orElseThrow(() -> new CustomException(BOOK_NOT_FOUND));

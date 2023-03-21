@@ -5,6 +5,8 @@ import com.example.bookservice.dto.member.*;
 import com.example.bookservice.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,7 +42,7 @@ public class MemberController {
     @GetMapping
     public MemberResponse findById() {
         log.info("[findById] 회원 조회를 수행합니다.");
-        Member member = getMember();
+        Member member = memberService.findById(getMember().getId());
         log.info("[findById] 회원 조회를 완료했습니다. id : {}", getMember().getId());
         return new MemberResponse(member);
     }
