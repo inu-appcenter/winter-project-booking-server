@@ -21,14 +21,14 @@ public class MemberResponse {
 
     private String department;
 
-    private List<SaveBookDto> saveBookDtoList;
+    private List<SaveBookDto> saveBookList;
 
     public MemberResponse(Member member) {
         this.id = member.getId();
-        this.name = member.getCollege();
+        this.name = member.getName();
         this.college = member.getCollege();
         this.department = member.getDepartment();
-        this.saveBookDtoList = member.getSaveBooks().stream()
+        this.saveBookList = member.getSaveBooks().stream()
                 .map(saveBook -> new SaveBookDto(saveBook))
                 .collect(Collectors.toList());
     }
