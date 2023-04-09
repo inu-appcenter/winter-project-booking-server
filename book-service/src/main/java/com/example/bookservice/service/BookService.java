@@ -21,7 +21,7 @@ public class BookService {
 
     private final BookRepository bookRepository;
 
-    private final MemberRepository memberRepository;
+    // private final MemberRepository memberRepository;
 
     // 책 전체 조회
     @Transactional

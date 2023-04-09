@@ -1,6 +1,7 @@
 package com.example.bookservice.dto.book;
 
 import com.example.bookservice.domain.Book;
+import com.example.bookservice.domain.BookType;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiParam;
 import lombok.Getter;
@@ -28,9 +29,9 @@ public class BookDto {
     @ApiParam(value = "출판년도")
     private int year;
 
-    @ApiModelProperty(example = "국내서 단행본")
-    @ApiParam(value = "자료유형")
-    private String type;
+    @ApiModelProperty(example = "주교재 | 참고서적")
+    @ApiParam(value = "책 유형")
+    private BookType bookType;
 
     public BookDto(Book book) {
         this.id = book.getId();
@@ -38,6 +39,6 @@ public class BookDto {
         this.author = book.getAuthor();
         this.publisher = book.getPublisher();
         this.year = book.getYear();
-        this.type = book.getType();
+        this.bookType = book.getBookType();
     }
 }
