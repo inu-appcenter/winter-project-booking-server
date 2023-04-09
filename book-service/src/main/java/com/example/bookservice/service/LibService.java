@@ -67,8 +67,8 @@ public class LibService {
         double similar = 1.0 - ((double) distance / Math.max(bookName.length(), resultBookName.length()));
         log.info("[similar] 유사도 체크 완료 | 유사도 : {}", similar);
 
-        // 유사도가 0.1 미만 혹은 0.0인 경우 404 에러 - 잘못된 검색 결과
-        if (similar == 0.0) {
+        // 유사도가 0.1 미만 404 에러 - 잘못된 검색 결과, 하지만 이렇게 해도 잘못된 결과 나올 수 있음
+        if (similar < 0.1) {
             throw new CustomException(ErrorCode.BOOK_NOT_FOUND);
         }
 

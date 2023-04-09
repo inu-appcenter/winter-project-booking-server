@@ -10,8 +10,12 @@ import lombok.Getter;
 public class SaveBookResponseDto {
 
     @ApiModelProperty(example = "1")
-    @ApiParam(value = "책 ID")
+    @ApiParam(value = "저장된 리스트의 ID")
     private Long id;
+
+    @ApiModelProperty(example = "1")
+    @ApiParam(value = "책의 원래 ID")
+    private Long bookId;
 
     @ApiModelProperty(example = "가깝고 먼 이야기, 색: 다채롭고 신비한 예술")
     @ApiParam(value = "책 제목")
@@ -35,6 +39,7 @@ public class SaveBookResponseDto {
 
     public SaveBookResponseDto(SaveBook saveBook) {
         this.id = saveBook.getId();
+        this.bookId = saveBook.getBook().getId();
         this.title = saveBook.getTitle();
         this.author = saveBook.getAuthor();
         this.publisher = saveBook.getPublisher();

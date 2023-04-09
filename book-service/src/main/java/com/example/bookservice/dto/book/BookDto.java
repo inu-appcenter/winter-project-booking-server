@@ -13,6 +13,10 @@ public class BookDto {
     @ApiParam(value = "책 ID")
     private Long id;
 
+    @ApiModelProperty(example = "1")
+    @ApiParam(value = "과목의 ID")
+    private Long subjectId;
+
     @ApiModelProperty(example = "가깝고 먼 이야기, 색: 다채롭고 신비한 예술")
     @ApiParam(value = "책 제목")
     private String title;
@@ -35,6 +39,7 @@ public class BookDto {
 
     public BookDto(Book book) {
         this.id = book.getId();
+        this.subjectId = book.getSubject().getId();
         this.title = book.getTitle();
         this.author = book.getAuthor();
         this.publisher = book.getPublisher();
