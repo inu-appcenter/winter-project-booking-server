@@ -7,7 +7,6 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -17,13 +16,12 @@ import java.io.IOException;
 public class CustomAuthenticationEntrypoint implements AuthenticationEntryPoint {
 
     @Override
-    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
+    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException {
 
         ObjectMapper objectMapper = new ObjectMapper();
         log.info("[commence] 인증 실패로 response.sendError 발생");
 
-        EntryPointErrorResponse entryPointErrorResponse = new EntryPointErrorResponse();
-        entryPointErrorResponse.setMsg("인증이 실패하였습니다");
+        EntryPointErrorResponse entryPointErrorResponse = EntryPointErrorResponse.builder().msg("인증이 실패하였습니다.").build();
 
         response.setStatus(401);
         response.setContentType("application/json");
