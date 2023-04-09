@@ -41,10 +41,12 @@ public class MemberService {
                 .build();
 
         memberRepository.save(member);
-        SignUpResponseDto signUpResponseDto = new SignUpResponseDto();
-        signUpResponseDto.setMsg("회원가입 성공");
-        signUpResponseDto.setSuccess(true);
-        log.info("[회원가입 성공]");
+        SignUpResponseDto signUpResponseDto = SignUpResponseDto.builder()
+                .msg("회원가입 성공")
+                .success(true)
+                .build();
+
+        log.info("[SignUp] 회원가입 성공");
         return signUpResponseDto;
     }
 
@@ -63,12 +65,13 @@ public class MemberService {
         log.info("[signInRequestDto] 패스워드 비교 수행 완료");
 
 
-        SignInResponseDto signInResponseDto = SignInResponseDto.builder()
-                .token(jwtTokenProvider.createToken(signInRequestDto.getEmail(), member.getRoles()))
+        SignUpResponseDto signUpResponseDto = SignUpResponseDto.builder()
+                .success(true)
+                .msg("로그인 성공")
                 .build();
 
-        signInResponseDto.setSuccess(true);
-        signInResponseDto.setMsg("로그인 성공");
+        SignInResponseDto signInResponseDto = new SignInResponseDto(signUpResponseDto.getSuccess(), signUpResponseDto.getMsg(), jwtTokenProvider.createToken(signInRequestDto.getEmail(), member.getRoles()));
+
 
         return signInResponseDto;
     }

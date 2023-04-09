@@ -1,14 +1,11 @@
 package com.example.bookservice.exception;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.Getter;
+import lombok.Builder;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
+
+@Getter
+@Builder
 public class EntryPointErrorResponse {
 
     private String msg;

@@ -1,7 +1,6 @@
 package com.example.bookservice.service;
 
 import com.example.bookservice.domain.Book;
-import com.example.bookservice.domain.Member;
 import com.example.bookservice.exception.CustomException;
 import com.example.bookservice.repository.BookRepository;
 import com.example.bookservice.repository.MemberRepository;
