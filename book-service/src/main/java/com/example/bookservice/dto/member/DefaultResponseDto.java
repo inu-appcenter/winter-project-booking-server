@@ -6,7 +6,7 @@ import lombok.Builder;
 
 @Getter
 @Builder
-public class SignUpResponseDto {
+public class DefaultResponseDto {
 
     private Boolean success;
 

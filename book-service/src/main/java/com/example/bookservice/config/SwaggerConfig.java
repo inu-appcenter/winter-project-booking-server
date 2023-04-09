@@ -24,7 +24,7 @@ import java.util.List;
 public class SwaggerConfig {
 
     @Bean
-    public Docket swagger() {
+    public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .useDefaultResponseMessages(false)
                 .securityContexts(Arrays.asList(securityContext()))
@@ -32,7 +32,8 @@ public class SwaggerConfig {
                 .select()
                 .apis(RequestHandlerSelectors.withClassAnnotation(RestController.class))
                 .paths(PathSelectors.any())
-                .build();
+                .build()
+                .apiInfo(apiInfo());
     }
 
     private ApiInfo apiInfo() {

@@ -24,7 +24,8 @@ public class Book {
 
     private int year;
 
-    private String type;
+    @Enumerated(EnumType.STRING)
+    private BookType bookType;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "subject_id")
@@ -47,9 +48,7 @@ public class Book {
         this.year = year;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
+    public void setBookType(BookType bookType) {this.bookType = bookType;}
 
 
     public void setSubject(Subject subject) {
@@ -57,14 +56,14 @@ public class Book {
         subject.getBooks().add(this);
     }
 
-    public static Book createBook(Subject subject, String title, String author, String publisher, int year, String type) {
+    public static Book createBook(Subject subject, String title, String author, String publisher, int year, BookType bookType) {
         Book book = new Book();
         book.setSubject(subject);
         book.setTitle(title);
         book.setAuthor(author);
         book.setPublisher(publisher);
         book.setYear(year);
-        book.setType(type);
+        book.setBookType(bookType);
         return book;
     }
 }

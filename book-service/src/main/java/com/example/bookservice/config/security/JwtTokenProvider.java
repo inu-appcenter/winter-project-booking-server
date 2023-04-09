@@ -29,7 +29,7 @@ public class JwtTokenProvider {
     private final UserDetailsService userDetailsService;
 
     @Value("${springboot.jwt.secret}")
-    private String secretKey = "secretKey";
+    private String secretKey;
     private final Long tokenValidMillisecond = 5000L * 60 * 60;
 
     @PostConstruct

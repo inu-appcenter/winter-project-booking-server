@@ -10,12 +10,12 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
-public class SecurityConfiguration {
+public class SecurityConfig {
 
     private final JwtTokenProvider jwtTokenProvider;
 
     @Autowired
-    public SecurityConfiguration(JwtTokenProvider jwtTokenProvider) {
+    public SecurityConfig(JwtTokenProvider jwtTokenProvider) {
         this.jwtTokenProvider = jwtTokenProvider;
     }
 
@@ -31,7 +31,7 @@ public class SecurityConfiguration {
                 )
                 .and()
                 .authorizeRequests()
-                .antMatchers("/members/sign-in", "/members/sign-up", "/members/exception", "/books", "books/{bookId}", "/subjects", "/subjects/{subjectId}").permitAll()
+                .antMatchers("/members/sign-in", "/members/sign-up", "/members/exception", "/books", "/books/{bookId}", "/subjects", "/subjects/{subjectId}", "/lib/**").permitAll()
 
                 .antMatchers("**exception**").permitAll()
 

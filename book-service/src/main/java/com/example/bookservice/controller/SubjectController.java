@@ -3,7 +3,7 @@ package com.example.bookservice.controller;
 import com.example.bookservice.domain.Subject;
 import com.example.bookservice.domain.SubjectCondition;
 import com.example.bookservice.dto.subject.SubjectDto;
-import com.example.bookservice.dto.subject.SubjectResponse;
+import com.example.bookservice.dto.subject.SubjectResponseDto;
 import com.example.bookservice.service.SubjectService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -50,9 +50,9 @@ public class SubjectController {
             @ApiResponse(code = 404, message = "해당하는 과목이 존재하지 않습니다"),
             @ApiResponse(code = 500, message = "서버에서 에러가 발생하였습니다")
     })
-    public SubjectResponse findById(@PathVariable Long subjectId) {
+    public SubjectResponseDto findById(@PathVariable Long subjectId) {
         log.info("[findById] 과목 조회를 수행합니다. subjectId : {}", subjectId);
         Subject subject = subjectService.findById(subjectId);
-        return new SubjectResponse(subject);
+        return new SubjectResponseDto(subject);
     }
 }

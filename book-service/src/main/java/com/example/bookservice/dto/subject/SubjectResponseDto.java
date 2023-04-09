@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class SubjectResponse {
+public class SubjectResponseDto {
 
     @ApiModelProperty(example = "1")
     @ApiParam(value = "과목 ID")
@@ -40,7 +40,7 @@ public class SubjectResponse {
     @ApiParam(example = "과목에 해당하는 도서 목록")
     private List<BookDto> books;
 
-    public SubjectResponse(Subject subject) {
+    public SubjectResponseDto(Subject subject) {
         this.id = subject.getId();
         this.subjectName = subject.getSubjectName();
         this.professorName = subject.getProfessorName();

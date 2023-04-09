@@ -26,7 +26,7 @@ public class SaveBook {
 
     private int year;
 
-    private String type;
+    private BookType bookType;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "book_id")
@@ -52,8 +52,8 @@ public class SaveBook {
         this.year = year;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setBookType(BookType bookType) {
+        this.bookType = bookType;
     }
 
     public static SaveBook createSaveBook(Book book, Member member) {
@@ -62,7 +62,7 @@ public class SaveBook {
         saveBook.author = book.getAuthor();
         saveBook.publisher = book.getPublisher();
         saveBook.year = book.getYear();
-        saveBook.type = book.getType();
+        saveBook.bookType = book.getBookType();
         saveBook.book = book;
         saveBook.member = member;
         return saveBook;

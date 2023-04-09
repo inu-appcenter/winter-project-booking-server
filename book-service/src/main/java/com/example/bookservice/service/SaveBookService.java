@@ -10,12 +10,14 @@ import com.example.bookservice.repository.SaveBookRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 
 import static com.example.bookservice.exception.ErrorCode.*;
 
 @Service
 @RequiredArgsConstructor
+@Transactional(readOnly = true)
 @Slf4j
 public class SaveBookService {
 
@@ -26,6 +28,7 @@ public class SaveBookService {
     private final BookRepository bookRepository;
 
     // 책 저장
+    @Transactional
     public Long save(Long memberId, Long bookId) {
         Member member = memberRepository.findById(memberId).get();
         Book book = bookRepository.findById(bookId)
@@ -37,12 +40,14 @@ public class SaveBookService {
     }
 
     // 저장한 책 조회
+    @Transactional
     public SaveBook findById(Long saveBookId) {
         return saveBookRepository.findById(saveBookId)
                 .orElseThrow(() -> new CustomException(BOOK_NOT_FOUND));
     }
 
     // 책 삭제
+    @Transactional
     public Long delete(Long saveBookId) {
         SaveBook saveBook = saveBookRepository.findById(saveBookId)
                 .orElseThrow(() -> new CustomException(BOOK_NOT_FOUND));
