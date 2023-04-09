@@ -3,13 +3,10 @@ package com.example.bookservice.dto.savebook;
 import com.example.bookservice.domain.SaveBook;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiParam;
-import lombok.AccessLevel;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class SaveBookResponse {
+public class SaveBookResponseDto {
 
     @ApiModelProperty(example = "1")
     @ApiParam(value = "책 ID")
@@ -35,7 +32,7 @@ public class SaveBookResponse {
     @ApiParam(value = "자료유형")
     private String type;
 
-    public SaveBookResponse(SaveBook saveBook) {
+    public SaveBookResponseDto(SaveBook saveBook) {
         this.id = saveBook.getId();
         this.title = saveBook.getTitle();
         this.author = saveBook.getAuthor();

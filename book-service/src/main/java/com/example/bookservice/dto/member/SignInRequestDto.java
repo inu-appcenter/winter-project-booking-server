@@ -1,14 +1,11 @@
 package com.example.bookservice.dto.member;
 
-import lombok.AccessLevel;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class SignInRequestDto {
 
     @NotBlank(message = "아이디를 입력해주세요.")

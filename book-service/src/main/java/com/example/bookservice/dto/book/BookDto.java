@@ -1,15 +1,11 @@
 package com.example.bookservice.dto.book;
 
 import com.example.bookservice.domain.Book;
-import com.example.bookservice.domain.Subject;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiParam;
-import lombok.AccessLevel;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class BookDto {
 
     @ApiModelProperty(example = "1")
