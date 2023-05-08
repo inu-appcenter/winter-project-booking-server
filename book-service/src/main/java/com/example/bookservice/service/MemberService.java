@@ -31,8 +31,14 @@ public class MemberService {
     @Transactional
     public SignUpResponseDto signUp(SignUpRequestDto signUpRequestDto) {
 
+        log.info("[아이디 중복 검사]");
+        if (memberRepository.existsByLoginId(signUpRequestDto.getLoginId())) {
+            throw new CustomException(DUPLICATE_MEMBER_ID);
+        }
+        log.info("[아이디 중복 검사 통과]");
+
         Member member = Member.builder()
-                .email(signUpRequestDto.getEmail())
+                .loginId(signUpRequestDto.getLoginId())
                 .password(passwordEncoder.encode(signUpRequestDto.getPassword()))
                 .name(signUpRequestDto.getName())
                 .college(signUpRequestDto.getCollege())
@@ -54,7 +60,7 @@ public class MemberService {
     @Transactional
     public SignInResponseDto signIn(SignInRequestDto signInRequestDto) {
         log.info("[signInRequestDto] 아이디 비교 수행");
-        Member member = memberRepository.getByEmail(signInRequestDto.getEmail())
+        Member member = memberRepository.getByLoginId(signInRequestDto.getLoginId())
                 .orElseThrow(() -> new CustomException(MEMBER_NOT_FOUND));
         log.info("[signInRequestDto] 아이디 비교 수행 완료");
 
@@ -70,7 +76,7 @@ public class MemberService {
                 .msg("로그인 성공")
                 .build();
 
-        SignInResponseDto signInResponseDto = new SignInResponseDto(signUpResponseDto.getSuccess(), signUpResponseDto.getMsg(), jwtTokenProvider.createToken(signInRequestDto.getEmail(), member.getRoles()));
+        SignInResponseDto signInResponseDto = new SignInResponseDto(signUpResponseDto.getSuccess(), signUpResponseDto.getMsg(), jwtTokenProvider.createToken(signInRequestDto.getLoginId(), member.getRoles()));
 
 
         return signInResponseDto;
