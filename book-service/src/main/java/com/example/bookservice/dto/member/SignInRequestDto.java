@@ -10,11 +10,10 @@ import javax.validation.constraints.NotBlank;
 @Getter
 public class SignInRequestDto {
 
-    @ApiModelProperty(example = "example@inu.ac.kr")
-    @ApiParam(value = "이메일 - 아이디로 변경 예정")
+    @ApiModelProperty(example = "example")
+    @ApiParam(value = "아이디")
     @NotBlank(message = "아이디를 입력해주세요.")
-    @Email(message = "올바르지 않은 이메일 형식입니다.")
-    private String email;
+    private String loginId;
 
     @ApiModelProperty(example = "example")
     @ApiParam(value = "비밀번호")

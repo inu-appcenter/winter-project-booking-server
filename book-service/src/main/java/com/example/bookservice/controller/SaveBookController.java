@@ -37,7 +37,7 @@ public class SaveBookController {
     public Long save(@PathVariable Long bookId) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Member member = (Member) authentication.getPrincipal();
-        log.info("memberEmail : {}, memberName : {}, memberPassword : ****", member.getEmail(), member.getName());
+        log.info("memberEmail : {}, memberName : {}, memberPassword : ****", member.getLoginId(), member.getName());
         Long saveBook = saveBookService.save(member.getId(), bookId);
 
         return saveBook;

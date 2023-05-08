@@ -29,7 +29,7 @@ public class Member implements UserDetails {
 
     private String name;
 
-    private String email;
+    private String loginId;
 
     private String password;
 
@@ -69,7 +69,7 @@ public class Member implements UserDetails {
 
     @Override
     public String getUsername() {
-        return this.email;
+        return this.loginId;
     }
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
